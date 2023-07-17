@@ -37,7 +37,7 @@ To run STRESS-BUSTER locally, follow these steps:
 
 ## Usage
 
-1. Simply open your web browser and navigate to the [STRESS-BUSTER](https://your-project-url-here) page.
+1. Simply open your web browser and navigate to the [STRESS-BUSTER](https://arittra-bag.github.io/STRESS-BUSTER/) page.
 2. Observe the mesmerizing spinning 3D donut at the center of the screen.
 3. Take a moment to focus on the spinning donut and allow yourself to experience a sense of mental relief and relaxation.
 
