@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3D Donut</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: black;
+      font-family: 'flood-std', sans-serif; /* Apply the Flood font style */
+      font-weight: 400;
+      font-style: normal;
+      font-size: 60px;
+      text-align: center;
+      padding-top: 5px;
+      color: white;
+    }
+    .underline {
+      border-bottom: 5px solid white; /* Add an underline to the text */
+      display: inline-block;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+  <link rel="stylesheet" href="https://use.typekit.net/xgm5mbs.css"> <!-- Include the Typekit CSS -->
+</head>
+<body>
+  <div class="underline">STRESS-BUSTER</div> <!-- Add the line "STRESS-BUSTER" as a div element -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    const donutGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
+    const donutMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const donutMesh = new THREE.Mesh(donutGeometry, donutMaterial);
+    scene.add(donutMesh);
+
+    camera.position.z = 30;
+
+    function onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    window.addEventListener('resize', onWindowResize, false);
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Set the donut's vertical position to the center of the screen
+      donutMesh.position.y = 0;
+
+      // Increase the rotation speed to make the donut spin faster
+      donutMesh.rotation.x += 0.02;
+      donutMesh.rotation.y += 0.03;
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
